@@ -2,6 +2,4 @@ node_modules/
 test.txt
 notas.txt
 
-client/static/
-public/imgs/
 config.js
