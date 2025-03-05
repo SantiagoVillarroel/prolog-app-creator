@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { URL_SERVER } from "../config.js";
+import { URL_SERVER } from "../../config.js";
 
 // Generate a new editor route
 export const generateNewEditorRoute = async () => {

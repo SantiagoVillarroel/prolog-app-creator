@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { URL_SERVER } from "../config.js";
+import { URL_SERVER } from "../../config.js";
 
 // Save and generate an exported project
 export const generateExportedPage = async (editRoute, html, code, predicatesInfo, predicateQueriesIds) => {
