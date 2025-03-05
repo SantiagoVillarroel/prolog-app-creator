@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  /* Defines the range of weights available */
+  font-style: normal;
+}
+
+.navbar {
+  background: linear-gradient(230deg, #77f5e8, #34ddcc);
+}
+
+body {
+  font-family: 'Source Code Pro', -apple-system, Helvetica, Arial, sans-serif;
+  background-color: #cfe8f5 !important;
+}
+
+/*.mainContainer {
+  background-color: #b3dcf1;
+  height: 100%;
+}*/
+
+button {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  /*color: rgb(218, 217, 132);*/
+  padding: 10px 20px;
+
+  border-color: black !important;
+  border-width: 2px !important;
+
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+input[type="file"] {
+  border-radius: 8px;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  /*color: rgb(218, 217, 132);*/
+  /*padding: 10px 20px;*/
+}
+
+/* Page CSS */
+.pageContainer {
+  /* margin-top: 20px;
+  margin-left: 15%;
+  width: 60%;
+  height: 90vh; */
+  background-color: white;
+
+  background-image:
+    linear-gradient(rgba(128, 128, 128, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.3) 1px, transparent 1px),
+    /* Bolder middle vertical line */
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(128, 128, 128, 0.7) 2px, transparent calc(50% + 1px)),
+    /* Bolder middle horizontal line */
+    linear-gradient(transparent calc(50% - 1px), rgba(128, 128, 128, 0.7) 2px, transparent calc(50% + 1px));
+
+  background-size: 5% 5%, 5% 5%, 100% 100%, 100% 100%;
+  /* Adjust the grid size */
+}
+
+.middle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2vw;
+  /* Circle size */
+  height: 4vh;
+  background-color: rgba(128, 128, 128, 0.3);
+  /* Greyed-out color */
+  border-radius: 50%;
+  /* Make it a circle */
+  transform: translate(-50%, -50%);
+  /* Center the circle */
+}
+
+/*w-[20vw] h-[30vh]
+w-[20vw] h-[10vh]*/
+.elementContainer {
+  border: 2px solid;
+  position: absolute;
+  background-color: #dbdbdbc5;
+}
+
+/*.elementContainer img{
+  max-width: 35%;
+  max-height: 35%;
+}*/
+
+.element {
+  border: 2px solid transparent;
+  display: inline-block;
+  /*padding: 10px;*/
+}
+
+/*.element:hover {
+  border-color: gray;
+}*/
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  max-height: 40%;
+  width: 15%;
+
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 2px;
+  font-weight: bold;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.dragButton {
+  position: absolute;
+  top: 0;
+  right: 20%;
+  max-height: 40%;
+  width: 15%;
+
+  background-color: lightgray;
+  border: none;
+  padding: 2px;
+  font-weight: bold;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.positionButtonContainer {
+  position: absolute;
+  top: 0;
+  right: 8%;
+  /*background-color: red;*/
+  color: black;
+  border: none;
+  /*padding: 5px;*/
+  font-weight: bold;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.positionButton {
+  border-radius: 6px;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  /*color: rgb(218, 217, 132);*/
+  padding: 8px 16px;
+}
+
+.tag {
+  background-color: rgb(235, 235, 235);
+  width: 120px;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-2deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: rotate(-2deg);
+  }
+}
+
+.wiggle {
+  animation: wiggle 0.25s infinite;
+}
+
+.header-widget-button {
+  background-color: rgb(83, 230, 83);
+}
+
+.image-widget-button {
+  background-color: rgb(226, 224, 66);
+}
+
+.bg-secondary {
+  background: linear-gradient(210deg, #FFA500, #FF7F50);
+}
+
+h3 {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.widget-container{
+  background: linear-gradient(210deg, #fcb32c, #fa7554);
+  border-radius: 30px;
+}
+
+#resizeButton {
+  width: 5%;
+  border-radius: 20px;
+  background-color: #c4c4c4;
+  cursor: ns-resize;
+  position: absolute;
+  bottom: 0;
+  left: 47.5%;
+}

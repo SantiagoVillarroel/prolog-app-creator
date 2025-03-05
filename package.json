@@ -1,0 +1,30 @@
+{
+  "name": "test5-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "/client/index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/server.js",
+    "build:css": "tailwindcss build -i client/css/styles.css -o dist/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "daisyui": "^4.12.2",
+    "express": "^4.18.2",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.6.3",
+    "nodemon": "^3.1.4",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.0",
+    "eslint": "^9.11.0",
+    "globals": "^15.9.0"
+  }
+}

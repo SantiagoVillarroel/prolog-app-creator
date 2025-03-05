@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script></script>
+    <title>Prolog Web App Creator</title>
+
+    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="/client/css/index.css">
+    <link rel="stylesheet" href="/client/css/indexEditorMode.css">
+    <link rel="stylesheet" href="/client/css/header.css">
+    <link rel="stylesheet" href="/client/css/toolbox.css">
+    <link rel="stylesheet" href="/client/css/rightPanel.css">
+    <link rel="stylesheet" href="/client/css/popup.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div class="">
+    <!-- Header -->
+    <html data-theme="acid"></html>
+    <div class="navbar">
+        <div class="flex-1">
+            <a class="text-xl font-bold" id="prolog-app-link">Prolog Web App Creator</a>
+        </div>
+        <div class="flex-none">
+            <a id="about-link" class="btn rounded-full bg-neutral-content border-2 border-black">Acerca de</a>
+        </div>
+    </div>
+
+    <div class="flex justify-between">
+
+        <!-- Sidebar -->
+        <div class="basis-[12%] border-2 border-black bg-secondary p-2 h-[92vh]" id = "toolboxContainer">
+            <div class="flex flex-col items-center widget-container" id="predicatesContainer">
+                <h3 class="text-xl font-bold underline">Predicados</h3>
+            </div>
+            <div class="flex flex-col items-center widget-container pb-2 mt-4" id="elementsContainer">
+                <h3 class="text-xl font-bold underline">Elementos</h3>
+            </div>
+        </div>
+
+        <!-- Canvas -->
+        <div class="pageContainer relative flex-grow border-2 border-black bg-base-100" id="pageContainer">
+
+            <div class="middle-circle"></div>
+            <button id="resizeButton">↓</button>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="basis-1/5 border-2 border-black p-4 bg-secondary" id="codeContainer">
+            <h3 class="text-xl font-bold ml-3 underline">Subir código aquí</h3>
+            <textarea id="inputCode" class="min-h-80 min-w-80 m-4 rounded-xl border-2 p-4 border-black" autocorrect="off">
+            </textarea>
+            <br/>
+            <!--<button id="closeRightPanelButton" class="arrowButton">-</button>-->
+            <button class="btn rounded-full bg-neutral-content ml-4" id="inputCodeButton">Ingresar código</button>
+            <br/><br/>
+            <!--<input type="file" id="inputFile" accept=".pl">-->
+            <!-- <button class="btn rounded-full bg-neutral-content" id="uploadFileButton">Subir archivo</button> -->
+            <button class="btn rounded-full bg-neutral-content ml-4" id="exportPageButton">Exportar</button>
+            <button class="btn rounded-full bg-neutral-content" id="saveButton">💾</button>
+
+            <!-- Results -->
+            <div class="m-2 h-[15%]">
+                <h3 class="text-xl font-bold">Resultados</h3>
+                <textarea readonly disabled id="results" class="resultsText rounded-xl font-bold border-2 border-black h-[100%] w-[100%] p-4"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup content -->
+    <div class="popupContainer" id="popupContainer">
+        <div class="popup" id="popup">
+            <span class="close" id="popupClose">&times;</span>
+            <label for="imageUrlInput">Enter Image URL:</label>
+            <input type="text" id="imageUrlInput" placeholder="https://example.com/image.jpg">
+            <button id="popupLoad">Load</button>
+        </div>
+    </div>
+    <div class="popupContainer" id="popupContainerModifyCode">
+        <div class="popup" id="popupModifyCode">
+            <p>Modificar el código limpiará el Canvas. ¿Desea continuar?</p>
+            <button id="btnModifyCodeYes">Yes</button>
+            <button id="btnModifyCodeNo">No</button>
+        </div>
+    </div>
+    <div id="popupContainerImages" class="popupContainer">
+        <div class="popup max-w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4" id="popupImages">
+            <!--<div class="w-24 h-24 m-2 cursor-pointer thumbnail" data-name="svg1">
+                <img src="/client/static/imgs/1682268254kawaiicat1.svg" alt="SVG 1">
+            </div>-->
+            <!--<img class="w-full h-auto transition-transform duration-300 ease-in-out transform hover:scale-105" 
+                src="/public/imgs/img1.jpeg" alt="img1" />
+            <img class="w-full h-auto transition-transform duration-300 ease-in-out transform hover:scale-105" 
+                src="/public/imgs/img2.jpg" alt="img2" />
+            <img class="w-full h-auto transition-transform duration-300 ease-in-out transform hover:scale-105" 
+                src="/public/imgs/img3.jfif" alt="img3" />
+            <img class="w-full h-auto transition-transform duration-300 ease-in-out transform hover:scale-105" 
+                src="/public/imgs/img4.jpg" alt="img4" />-->
+        </div>
+        <button id="popupImagesCloseButton" class="mt-4 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+    </div>
+    <script type="module" src="/client/navLinks.js"></script>
+    <script type="module" src="/client/index.js"></script>
+</div>
+
+</body>
+</html>

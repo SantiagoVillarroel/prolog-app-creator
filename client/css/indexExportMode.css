@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  /* Defines the range of weights available */
+  font-style: normal;
+}
+
+body{
+  font-family: 'Source Code Pro', -apple-system, Helvetica, Arial, sans-serif;
+  background-color: #cfe8f5 !important;
+  min-height: 100vh;
+  /* display: flex; */
+}
+
+button {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  /*color: rgb(218, 217, 132);*/
+  padding: 10px 20px;
+
+  border-color: black !important;
+  border-width: 2px !important;
+
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Page CSS */
+.pageContainer {
+  background-color: white;
+
+  background-image:
+    linear-gradient(rgba(128, 128, 128, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.3) 1px, transparent 1px),
+    /* Bolder middle vertical line */
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(128, 128, 128, 0.7) 2px, transparent calc(50% + 1px)),
+    /* Bolder middle horizontal line */
+    linear-gradient(transparent calc(50% - 1px), rgba(128, 128, 128, 0.7) 2px, transparent calc(50% + 1px));
+
+  background-size: 5% 5%, 5% 5%, 100% 100%, 100% 100%;
+
+  height: 92vh;
+}
+
+/* Elements CSS */
+
+.elementContainer {
+  border: 2px solid;
+  position: absolute;
+  background-color: #dbdbdbc5;
+  
+}
+
+.element {
+  border: 2px solid transparent;
+  display: inline-block;
+  /*padding: 10px;*/
+}
+
+.closeButton {
+  visibility: hidden;
+}
+
+.positionButton{
+  visibility: hidden;
+}
+
+.tag{
+  background-color: rgb(235, 235, 235);
+  width: 120px;
+}
+
+#resizeButton{
+  visibility: hidden;
+}
+
+.dragButton {
+  visibility: hidden;
+}

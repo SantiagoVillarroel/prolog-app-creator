@@ -1,0 +1,11 @@
+.elementContainer:hover {
+    border-color: gray;
+  }
+
+.elementContainer:hover .closeButton {
+visibility: visible;
+}
+
+.elementContainer:hover .dragButton {
+  visibility: visible;
+}

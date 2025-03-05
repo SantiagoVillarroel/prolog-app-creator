@@ -1,0 +1,36 @@
+/*Input code CSS*/
+.input{
+    box-sizing: border-box; /* include padding and border in total width */
+    width: 100%; /* set the initial width to 100% of the parent container */
+    max-width: 700px; 
+    /*padding: 10px;*/
+    height: 400px;
+}
+
+.codeContainer {
+    position: absolute;
+    margin-top: 20px;
+    /*top: auto;*/
+    right: 0;
+    /*width: 450px; */
+    width: 20%;
+    /*background-color: #f1f1f196;*/
+    padding: 20px;
+}
+
+.arrowButton {
+    position: absolute;
+    left: 0;
+    top: 350px;
+    transform: translateY(-50%);
+    background-color: rgb(241, 241, 241);
+    color: black;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .closedCodeContainer {
+    margin-right: -19.2%;
+  }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script></script>
+    <title>Prolog Web App Creator</title>
+
+    <link rel="stylesheet" href="/dist/styles.css">
+    <link rel="stylesheet" href="/client/css/indexExportMode.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div class="">
+    <!-- Header -->
+    <html data-theme="acid"></html>
+    <div class="navbar">
+        <div class="flex-1">
+            <a class="text-xl font-bold" href="https://prologforkids.fi.uncoma.edu.ar">Prolog Web App Creator</a>
+        </div>
+        <div class="flex-none">
+            <a href="https://prologforkids.fi.uncoma.edu.ar/about"class="btn rounded-full bg-neutral-content border-2 border-black">Acerca de</a>
+        </div>
+    </div>
+
+    <div class="flex justify-between">
+
+        <!-- Canvas -->
+        <div class="pageContainer relative flex-grow border-2 border-black bg-base-100" id="pageContainer">
+
+            <!--<div class="middle-circle"></div>
+            <button id="resizeButton">↓</button> -->
+        </div>
+
+        <!-- Right Panel -->
+        <div class="basis-1/5 border-2 border-black p-4 bg-secondary" id="codeContainer">
+
+            <!-- Results -->
+            <div class="m-2 h-[15%]">
+                <h3 class="text-xl font-bold">Resultados</h3>
+                <textarea readonly disabled id="results" class="resultsText rounded-xl font-bold border-2 border-black h-[100%] w-[100%] p-4"></textarea>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/client/exportedPage.js"></script>
+</div>
+
+</body>
+</html>

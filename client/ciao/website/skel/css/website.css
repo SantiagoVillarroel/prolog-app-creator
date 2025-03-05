@@ -1,0 +1,261 @@
+/*
+ * CSS Style for the Ciao website
+ *
+ * Author: Jose F. Morales <jfmcjf@gmail.com>
+ */
+
+html {
+    /* do not force a scroll-bar */
+    overflow: auto;
+}
+
+body {
+    margin: 0px;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.lpdoc-logo {
+    margin-left: 20px;
+}
+
+.lpdoc-title {
+    height: 64px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-top: 24px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+    padding-right: 0px;
+    /*border-bottom: 1px solid var(--border);*/
+    background-color: var(--bg);
+}
+
+.lpdoc-section_image {
+    padding: 0px;
+    margin: 0px;
+}
+
+.header-icon-img {
+  height: 22.5px;
+  width: 22.5px;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  margin-top: 2px;
+}
+
+.header-icon-img:hover {
+  transform: scale(1.1);
+}
+
+/*
+html { --bg-img: unset; }
+html[data-theme='dark'] { --bg-img: linear-gradient(178deg, #22242a 0%, #23272c 50%, #23272c 100%); }
+body { background-color: var(--bg); background-image: var(--bg-img); }
+.lpdoc-title { background-color: unset; }
+div.lpdoc-main { background-color: unset; }
+div.lpdoc-page { background-color: unset; }
+div.lpdoc-footer { background-color: unset; }
+*/
+
+/* --------------------------------------------------------------------------- */
+/* Horizontal menu */
+
+/* selected menu item */
+.lpdoc-selmenu {
+}
+a.lpdoc-selmenu {
+    padding: 4px 8px 4px 8px;
+    margin: 0px;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.lpdoc-selmenu:visited, a.lpdoc-selmenu:active, a.lpdoc-selmenu:link {
+    color: var(--sidebar-link);
+    padding-bottom: 17px;
+    /*border-bottom: 2px solid var(--sidebar-link);*/
+}
+a.lpdoc-selmenu:hover {
+    color: var(--sidebar-link);
+    text-decoration: underline;
+}
+/* unselected menu item */
+.lpdoc-unselmenu {
+}
+a.lpdoc-unselmenu {
+    padding: 4px 8px 4px 8px;
+    margin: 0px;
+    display: block;
+    text-decoration: none;
+}
+a.lpdoc-unselmenu:visited, a.lpdoc-unselmenu:active, a.lpdoc-unselmenu:link {
+    color: var(--sidebar-link);
+}
+a.lpdoc-unselmenu:hover {
+    color: var(--sidebar-link);
+    text-decoration: underline;
+}
+/* phony menu item (just group together other items) */
+.lpdoc-phonymenu {
+    color: var(--fg);
+    padding: 4px 8px 4px 8px;
+    margin: 0px;
+    display: block;
+}
+
+/* search at menu item */
+.lpdoc-searchmenu {
+}
+a.lpdoc-searchmenu {
+    /* padding: 4px 8px 4px 8px; */
+    margin: 0px;
+    display: block;
+    text-decoration: none;
+    /* font-size: 24px; */
+}
+a.lpdoc-searchmenu:visited, a.lpdoc-searchmenu:active, a.lpdoc-searchmenu:link {
+    color: var(--sidebar-link);
+}
+a.lpdoc-searchmenu:hover {
+    color: var(--sidebar-link);
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Menu at topbar */
+
+ul.lpdoc-horiz-menu {
+    display: inline-block;
+    float: right;
+    list-style-type: none;
+    margin: 0px 16px 0px 0px;
+    font-size: 16px;
+}
+
+ul.lpdoc-horiz-menu li {
+    float: left;
+    margin: 8px 2px 8px 2px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+div.lpdoc-main {
+    border: 0px;
+    padding: 1px 20px 30px 40px;
+}
+
+/* --------------------------------------------------------------------------- */
+
+.lpdoc-page {
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.lpdoc-footer {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.lpdoc-cartouche {
+    color: var(--cartouche-fg);
+}
+.lpdoc-cartouche > ul {
+    margin: 8px;
+    padding: 0px 4px 0px 4px;
+    list-style-type: none;
+}
+.lpdoc-cartouche > ul li:before {
+    content: '\00BB';
+    color: var(--cartouche-fg);
+    margin: 0 4px 0 0;
+}
+
+/* --------------------------------------------------------------------------- */
+
+li {
+    margin: .4em;
+}
+
+table {
+    border: none;
+    font-size: 16px; /* necessary for mail archives */
+}
+
+td {
+    border: none; 
+    padding: .1em .7em .1em .3em;
+}
+
+th {
+    border: none;
+}
+
+dt {
+    font-style: italic;
+}
+
+code {
+    font-size: 100%;
+}
+
+img {
+    border: none;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Mobile-friendly */
+
+@media (max-width: 700px) {
+    .lpdoc-title {
+	height: auto;
+	padding-bottom: 6px;
+    }
+    .lpdoc-logo {
+	margin-left: 0px;
+    }
+    div.lpdoc-main {
+	padding-left: 20px;
+    }
+    div.lpdoc-sidebar {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+    }
+    div.lpdoc-sidebar li {
+	padding-left: 0px;
+    }
+    ul.lpdoc-horiz-menu {
+	display: none;
+    }
+    ul.lpdoc-horiz-menu-toggled {
+	display: block;
+	float: none;
+	list-style-type: none;
+	padding-left: 0px;
+    }
+    ul.lpdoc-horiz-menu-toggled li {
+	float: none;
+	margin: 0px;
+    }
+    a.lpdoc-selmenu:visited, a.lpdoc-selmenu:active, a.lpdoc-selmenu:link {
+	border-bottom: 0px;
+	padding: 4px 8px 4px 8px;
+    }
+}
+

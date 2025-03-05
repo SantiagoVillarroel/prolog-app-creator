@@ -1,0 +1,25 @@
+/* Ensure the div takes up the full viewport */
+.centered-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: flex-start;  /* Align to the top */
+    padding-top: 150px;       /* Adjust this value to control how far down the button appears */
+    background: linear-gradient(135deg, orange, #ffcc99); /* Orange gradient */
+}
+
+/* Style the button with bigger size */
+.center-button {
+    padding: 25px 50px;  /* Larger padding for bigger size */
+    font-size: 40px !important;     /* Larger font size */
+    color: white;
+    background-color: #ff6600;  /* Orange button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.center-button:hover {
+    background-color: #cc5200;  /* Darker shade on hover */
+}

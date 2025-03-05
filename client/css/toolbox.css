@@ -1,0 +1,17 @@
+/*Toolbox CSS*/
+.toolboxContainer {
+    position: absolute;
+    /*top: auto;*/
+    margin-top: 20px;
+    left: 0;
+    /*width: 200px; */
+    width: 10%;
+    height: 500px;
+    background-color: #9ad8fa;
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  .toolboxButton{
+    margin: 5px;
+  }

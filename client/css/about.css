@@ -1,0 +1,5 @@
+/* Ensure the div takes up the full viewport */
+.about {
+    height: 100vh;
+    background: linear-gradient(135deg, orange, #ffcc99); /* Orange gradient */
+}
