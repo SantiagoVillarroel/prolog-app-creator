@@ -34,3 +34,22 @@
   .closedCodeContainer {
     margin-right: -19.2%;
   }
+
+  /* Right Panel Transition */
+#codeContainer {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hidden State */
+.right-panel-hidden {
+  transform: translateX(100%);
+}
+
+/* Toggle Button Positioning */
+#toggleRightPanelButton {
+  transition: all 0.3s ease;
+}
+
+.right-panel-hidden + #toggleRightPanelButton {
+  left: -40px;
+}

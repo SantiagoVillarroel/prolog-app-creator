@@ -31,6 +31,22 @@ export default class Toolbox {
 
         popupImagesCloseButton.addEventListener('click', () => popupImagesContainer.style.display = 'none')
 
+        document.getElementById("toggleToolboxButton").addEventListener("click", () => {
+            const toolbox = document.getElementById("toolboxContainer");
+            const isHidden = toolbox.classList.contains("-translate-x-full");
+
+            toolbox.classList.toggle("-translate-x-full"); // Hide/show
+            document.getElementById("toggleToolboxButton").textContent = isHidden ? "←" : "→";
+        });
+
+        /* document.getElementById("toggleRightPanelButton").addEventListener("click", () => {
+            const rightPanel = document.getElementById("codeContainer");
+            const isHidden = rightPanel.classList.contains("-translate-x-full");
+
+            rightPanel.classList.toggle("-translate-x-full"); // Hide/show
+            document.getElementById("toggleToolboxButton").textContent = isHidden ? "→" : "←";
+        }); */
+
     }
 
     createElementButton(label, className) {
@@ -200,7 +216,7 @@ export default class Toolbox {
         });
     }
 
-    handleTitleWidget(closeButton){
+    handleTitleWidget(closeButton) {
         let id = 'header' + this.mappingElementsIndex['header'];
         let dragButton = helpers.createHTMLElement("button", { class: "dragButton" }, '\u2630')
         this.mappingElementsIndex['header']++;

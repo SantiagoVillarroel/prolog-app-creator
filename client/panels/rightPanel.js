@@ -40,6 +40,7 @@ export default class RightPanel {
         await this.addEventListenerUploadCode();
         this.addEventListenerSaveButton();
         this.addEventListenerExportPage();
+        this.addEventListenerToggleButton()
 
         pubSub.subscribe('showResults', (event) => {
             this.resultsText.innerHTML = event.detail.result;
@@ -101,6 +102,16 @@ export default class RightPanel {
     addEventListenerExportPage() {
         this.exportPageButton.addEventListener('click', async () => {
             pubSub.publish('export');
+        });
+    }
+
+    addEventListenerToggleButton() {
+        document.getElementById("toggleRightPanelButton").addEventListener("click", () => {
+            const rightPanel = document.getElementById("codeContainer");
+            const isHidden = rightPanel.classList.contains("right-panel-hidden");
+
+            rightPanel.classList.toggle("right-panel-hidden");
+            document.getElementById("toggleRightPanelButton").textContent = isHidden ? "→" : "←";
         });
     }
 
