@@ -40,10 +40,10 @@
             <!-- Sidebar -->
             <div class="basis-[12%] border-2 border-black bg-secondary p-2 h-[92vh] relative transition-all duration-300 ease-in-out"
                 id="toolboxContainer">
-                <button id="toggleToolboxButton" class="absolute right-0 top-1/2 -translate-y-1/2 
+                <!-- <button id="toggleToolboxButton" class="absolute right-0 top-1/2 -translate-y-1/2 
                 -mr-8 bg-secondary border-2 border-l-0 border-black rounded-r-lg px-2 py-1 hover:bg-secondary-focus">
                     ←
-                </button>
+                </button> -->
                 <div class="flex flex-col items-center widget-container" id="predicatesContainer">
                     <h3 class="text-xl font-bold underline">Predicados</h3>
                 </div>
@@ -63,8 +63,8 @@
             <div class="basis-1/5 border-2 border-black p-4 bg-secondary relative transition-all duration-300 ease-in-out"
                 id="codeContainer">
                 <!-- Toggle Button -->
-                <button id="toggleRightPanelButton" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-8 bg-secondary border-2 
-                    border-r-0 border-black rounded-l-lg px-2 py-1 hover:bg-secondary-focus">→</button>
+                <!-- <button id="toggleRightPanelButton" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-8 bg-secondary border-2 
+                    border-r-0 border-black rounded-l-lg px-2 py-1 hover:bg-secondary-focus">→</button> -->
 
                 <h3 class="text-xl font-bold ml-3 underline">Subir código aquí</h3>
 
@@ -88,6 +88,12 @@
                 </div>
             </div>
         </div>
+
+        <button id="toggleRightPanelButton" class="fixed top-1/2 -translate-y-1/2 bg-secondary border-2 border-r-0 border-black 
+         rounded-l-lg px-2 py-1 hover:bg-secondary-focus z-50 transition-all 
+         block md:hidden">
+            →
+        </button>
 
         <!-- Popup content -->
         <div class="popupContainer" id="popupContainer">

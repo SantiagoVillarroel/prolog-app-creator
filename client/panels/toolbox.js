@@ -31,20 +31,12 @@ export default class Toolbox {
 
         popupImagesCloseButton.addEventListener('click', () => popupImagesContainer.style.display = 'none')
 
-        document.getElementById("toggleToolboxButton").addEventListener("click", () => {
+        /* document.getElementById("toggleToolboxButton").addEventListener("click", () => {
             const toolbox = document.getElementById("toolboxContainer");
             const isHidden = toolbox.classList.contains("left-panel-hidden");
 
             toolbox.classList.toggle("left-panel-hidden"); // Hide/show
             document.getElementById("toggleToolboxButton").textContent = isHidden ? "←" : "→";
-        });
-
-        /* document.getElementById("toggleRightPanelButton").addEventListener("click", () => {
-            const rightPanel = document.getElementById("codeContainer");
-            const isHidden = rightPanel.classList.contains("-translate-x-full");
-
-            rightPanel.classList.toggle("-translate-x-full"); // Hide/show
-            document.getElementById("toggleToolboxButton").textContent = isHidden ? "→" : "←";
         }); */
 
     }

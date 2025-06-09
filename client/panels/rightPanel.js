@@ -42,6 +42,9 @@ export default class RightPanel {
         this.addEventListenerExportPage();
         this.addEventListenerToggleButton()
 
+        this.updateRightToggleButtonPosition();
+        window.addEventListener("resize", this.updateRightToggleButtonPosition);
+
         pubSub.subscribe('showResults', (event) => {
             this.resultsText.innerHTML = event.detail.result;
         })
@@ -106,13 +109,42 @@ export default class RightPanel {
     }
 
     addEventListenerToggleButton() {
-        document.getElementById("toggleRightPanelButton").addEventListener("click", () => {
-            const rightPanel = document.getElementById("codeContainer");
+        const rightPanel = document.getElementById("codeContainer");
+        const toggleRightBtn = document.getElementById("toggleRightPanelButton");
+
+        toggleRightBtn.addEventListener("click", () => {
             const isHidden = rightPanel.classList.contains("right-panel-hidden");
 
-            rightPanel.classList.toggle("right-panel-hidden");
-            document.getElementById("toggleRightPanelButton").textContent = isHidden ? "→" : "←";
+            if (isHidden) {
+                rightPanel.classList.remove("right-panel-hidden");
+                rightPanel.classList.add("basis-1/5", "p-4", "border-2");
+                toggleRightBtn.textContent = "→";
+                // toggleRightBtn.style.right = "60%";
+            } else {
+                rightPanel.classList.add("right-panel-hidden");
+                rightPanel.classList.remove("basis-1/5", "p-4", "border-2");
+                toggleRightBtn.textContent = "←";
+                // toggleRightBtn.style.right = "0";
+            }
+
+            this.updateRightToggleButtonPosition();
         });
+    }
+
+    updateRightToggleButtonPosition() {
+        const rightPanel = document.getElementById("codeContainer");
+        const toggleRightBtn = document.getElementById("toggleRightPanelButton");
+        const isHidden = rightPanel.classList.contains("right-panel-hidden");
+        
+        if (isHidden) {
+            // Put button flush to the right edge
+            toggleRightBtn.style.right = "0px";
+        } else {
+            // Align with left edge of right panel
+            const rect = rightPanel.getBoundingClientRect();
+            const offset = window.innerWidth - rect.left;
+            toggleRightBtn.style.right = `${offset}px`;
+        }
     }
 
     /*addEventListenerUploadFile(){
