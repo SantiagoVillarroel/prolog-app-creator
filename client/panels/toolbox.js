@@ -33,9 +33,9 @@ export default class Toolbox {
 
         document.getElementById("toggleToolboxButton").addEventListener("click", () => {
             const toolbox = document.getElementById("toolboxContainer");
-            const isHidden = toolbox.classList.contains("-translate-x-full");
+            const isHidden = toolbox.classList.contains("left-panel-hidden");
 
-            toolbox.classList.toggle("-translate-x-full"); // Hide/show
+            toolbox.classList.toggle("left-panel-hidden"); // Hide/show
             document.getElementById("toggleToolboxButton").textContent = isHidden ? "←" : "→";
         });
 

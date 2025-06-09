@@ -40,9 +40,12 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hidden State */
 .right-panel-hidden {
-  transform: translateX(100%);
+  /* Instead of transform, use width-related styles */
+  width: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden;
 }
 
 /* Toggle Button Positioning */
