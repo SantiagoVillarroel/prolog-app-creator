@@ -88,8 +88,8 @@ export default class Canvas {
         const predicateQueryId = this.getPredicateQueryId(predicate, predicateQueryIndex)
         this.predicateQueriesInserted.push(predicateQueryIndex);
         // pubSub.publish('newQueryWidgetId', { detail: { widgetId: predicateQueryId } });
-        this.store.dispatch({type:'ADD_PREDICATE_QUERY', payload:predicateQueryId})
-        this.store.dispatch({type:'INCREMENT_WIDGET_INDEX', payload:predicate})
+        this.store.dispatch({ type: 'ADD_PREDICATE_QUERY', payload: predicateQueryId })
+        this.store.dispatch({ type: 'INCREMENT_WIDGET_INDEX', payload: predicate })
 
         const div = this.createQueryWidgetContainer(predicateQueryId, predicate, arity, children);
 
@@ -99,7 +99,7 @@ export default class Canvas {
         pubSub.publish('appendWidget', { detail: { widget: div } });
     };
 
-    createPredicateElements(predicate, arity){
+    createPredicateElements(predicate, arity) {
         const children = [
             helpers.createHTMLElement("h3", { class: "text-xl font-bold max-w-[70%]", contenteditable: "true", spellcheck: "false" }, predicate) //, //Predicate name (header)
             //helpers.createHTMLElement("br")
@@ -144,9 +144,9 @@ export default class Canvas {
             const widgetId = container.getAttribute('id');
 
             container.remove();
-            this.store.dispatch({type: 'REMOVE_PREDICATE_QUERY', payload: widgetId});
+            this.store.dispatch({ type: 'REMOVE_PREDICATE_QUERY', payload: widgetId });
         });
-        return {dragButton, closeButton};
+        return { dragButton, closeButton };
     }
 
     getPredicateQueryId(predicate, id) {
@@ -226,55 +226,64 @@ export default class Canvas {
         let offsetX = 0;
         let offsetY = 0;
 
-        const onMouseMove = (event) => {
-            if (selectedElement) {
-                const x = event.pageX - this.pageContainer.offsetLeft - offsetX;
-                const y = event.pageY - this.pageContainer.offsetTop - offsetY;
-
-                console.log(x + ' ' + y);
-
-                // Ensure the widget stays within the container
-                const containerRect = this.pageContainer.getBoundingClientRect();
-                const elementRect = selectedElement.getBoundingClientRect();
-
-                const leftBoundary = Math.max(0, Math.min(x, containerRect.width - elementRect.width));
-                const topBoundary = Math.max(0, Math.min(y, containerRect.height - elementRect.height));
-
-                const leftPercent = (leftBoundary / containerRect.width) * 100;
-                const topPercent = (topBoundary / containerRect.height) * 100;
-
-                selectedElement.style.left = `${leftPercent}%`;
-                selectedElement.style.top = `${topPercent}%`;
-
-                selectedElement.setAttribute('left', `${leftPercent}%`);
-                selectedElement.setAttribute('top', `${topPercent}%`);
+        const getEventCoordinates = (e) => {
+            if (e.touches && e.touches.length > 0) {
+                return { x: e.touches[0].clientX, y: e.touches[0].clientY };
             }
+            return { x: e.clientX, y: e.clientY };
         };
 
-        const onMouseUp = () => {
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
+        const onMove = (event) => {
+            if (!selectedElement) return;
+
+            const { x, y } = getEventCoordinates(event);
+
+            const containerRect = this.pageContainer.getBoundingClientRect();
+            const elementRect = selectedElement.getBoundingClientRect();
+
+            const newX = x - containerRect.left - offsetX;
+            const newY = y - containerRect.top - offsetY;
+
+            const leftBoundary = Math.max(0, Math.min(newX, containerRect.width - elementRect.width));
+            const topBoundary = Math.max(0, Math.min(newY, containerRect.height - elementRect.height));
+
+            const leftPercent = (leftBoundary / containerRect.width) * 100;
+            const topPercent = (topBoundary / containerRect.height) * 100;
+
+            selectedElement.style.left = `${leftPercent}%`;
+            selectedElement.style.top = `${topPercent}%`;
+
+            selectedElement.setAttribute('left', `${leftPercent}%`);
+            selectedElement.setAttribute('top', `${topPercent}%`);
+        };
+
+        const onEnd = () => {
+            document.removeEventListener('mousemove', onMove);
+            document.removeEventListener('mouseup', onEnd);
+            document.removeEventListener('touchmove', onMove);
+            document.removeEventListener('touchend', onEnd);
             selectedElement = null;
-            //offsetX = 0;
-            //offsetY = 0;
         };
 
-        const onMouseDown = (event) => {
-            console.log(event.target.tagName);
-            if (event.target.classList.contains('dragButton')) {
-                selectedElement = event.target.parentElement;
+        const onStart = (event) => {
+            const target = event.target;
+            if (target.classList.contains('dragButton')) {
+                selectedElement = target.parentElement;
+
+                const { x, y } = getEventCoordinates(event);
                 const rect = selectedElement.getBoundingClientRect();
-                offsetX = event.clientX - rect.left;
-                offsetY = event.clientY - rect.top;
+                offsetX = x - rect.left;
+                offsetY = y - rect.top;
 
-                console.log(offsetX + ' ' + offsetY);
-
-                document.addEventListener('mousemove', onMouseMove);
-                document.addEventListener('mouseup', onMouseUp);
+                document.addEventListener('mousemove', onMove);
+                document.addEventListener('mouseup', onEnd);
+                document.addEventListener('touchmove', onMove, { passive: false });
+                document.addEventListener('touchend', onEnd);
             }
         };
 
-        pageContainer.addEventListener('mousedown', onMouseDown);
+        this.pageContainer.addEventListener('mousedown', onStart);
+        this.pageContainer.addEventListener('touchstart', onStart, { passive: false });
     }
 
     setupQueryButton(predicate, arity, selects, inputs, queryButton) {
